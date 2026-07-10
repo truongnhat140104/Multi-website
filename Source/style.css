@@ -1,0 +1,342 @@
+
+/* ==========================================================================
+   1. CORE (Variables & Reset)
+   ========================================================================== */
+:root {
+    --bg-color: #fcfcfc;
+    --text-color: #1a1a1a;
+    --accent-color: #c5a059;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg-color); color: var(--text-color); font-family: var(--font-body); }
+
+/* ==========================================================================
+   2. LAYOUT OBJECTS
+   ========================================================================== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+/* ==========================================================================
+   3. COMPONENT: HEADER (Horizontal & Sticky)
+   ========================================================================== */
+.lp-header {
+    position: fixed; top: 0; left: 0; width: 100%; padding: 30px 0;
+    z-index: 9999; background: rgba(252, 252, 252, 0.8);
+    backdrop-filter: blur(10px); transition: all 0.4s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.lp-header.scrolled { padding: 15px 0; background: rgba(252, 252, 252, 0.95); }
+
+.header-flex { display: flex; align-items: center; justify-content: space-between; }
+
+.logo-main {
+    font-family: var(--font-heading); font-size: 24px;
+    letter-spacing: 6px; color: var(--text-color); text-decoration: none;
+}
+
+.nav-group { display: flex; gap: 40px; align-items: center; }
+.nav-link {
+    text-decoration: none; color: var(--text-color); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; transition: 0.3s;
+}
+.nav-link:hover { opacity: 1; }
+/* Hero Editorial */
+.hero-editorial {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    /* Thay URL bằng ảnh nền của ông */
+    background: url('URL_ANH_NEN_CUA_ONG') center/cover no-repeat;
+    filter: brightness(0.7); /* Làm tối ảnh một chút để nổi chữ */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+}
+
+.brand-logo {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.hero-headline {
+    font-family: var(--font-heading);
+    font-size: 5rem; /* Size chữ to như tạp chí */
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.btn-luxury-outline {
+    display: inline-block;
+    padding: 12px 35px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.btn-luxury-outline:hover {
+    background: #fff;
+    color: #000;
+
+}
+/* About Section Style */
+.lp-about {
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+.grid-about {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia 2 cột đều nhau */
+    gap: 80px;
+    align-items: center;
+}
+
+.about-headline {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    text-transform: lowercase;
+}
+
+.about-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Ảnh nghiêng (Signature Look) */
+.about-image img {
+    width: 100%;
+    transform: rotate(3deg); /* Tạo độ nghiêng tự nhiên */
+    transition: 0.5s;
+    border-radius: 4px;
+}
+
+.about-image img:hover {
+    transform: rotate(0deg);
+}
+
+.about-quote {
+    margin-top: 30px;
+    border-left: 2px solid var(--accent-color);
+    padding-left: 20px;
+    font-style: italic;
+}
+
+/* Responsive cho Mobile */
+@media (max-width: 768px) {
+    .grid-about { grid-template-columns: 1fr; gap: 40px; }
+    .about-headline { font-size: 3rem; }
+}
+/* Component: Overflow Code */
+.lp-section {
+    padding: 100px 0;
+    background: #fdf5f5; /* Màu nền hồng nhạt sang trọng */
+}
+
+.grid-overflow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.visual-frame img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.section-headline {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.benefit-list {
+    list-style: none;
+    margin: 30px 0;
+}
+
+.benefit-list li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.benefit-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .grid-overflow { grid-template-columns: 1fr; text-align: center; }
+    .benefit-list { text-align: left; }
+}
+/* Component: What I Offer Grid */
+.lp-offer { padding: 100px 0; background: #fff; }
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 cột trên Desktop */
+    gap: 30px;
+}
+
+.offer-card {
+    padding: 40px;
+    border: 1px solid rgba(0,0,0,0.1); /* Viền mỏng sang trọng */
+    transition: 0.3s;
+    text-align: center;
+}
+
+.offer-card:hover {
+    border-color: var(--accent-color);
+}
+
+.offer-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.offer-card p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.offer-card a {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .offer-grid { grid-template-columns: 1fr; } /* 1 cột trên Mobile */
+}
+/* Component: Results Grid */
+.lp-results { padding: 100px 0; background: #fcfcfc; }
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cột */
+    gap: 20px;
+}
+
+.result-item {
+    text-align: center;
+    padding: 20px;
+}
+
+.result-item img {
+    width: 100%;
+    height: 350px; /* Cố định chiều cao để đồng nhất */
+    object-fit: cover;
+    margin-bottom: 20px;
+    filter: grayscale(20%); /* Hiệu ứng màu sang trọng */
+    transition: 0.5s;
+}
+
+.result-item img:hover { filter: grayscale(0%); }
+
+.result-item p {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.result-item small {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .results-grid { grid-template-columns: 1fr; }
+}
+/* Component: CTA & Footer */
+.lp-cta {
+    padding: 120px 0 60px 0;
+    background: #fcfcfc;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+}
+
+.cta-left p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 400px;
+    margin-top: 20px;
+    opacity: 0.8;
+}
+
+.cta-right h3 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.footer-info {
+    margin-top: 50px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 2.5;
+    opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cta-grid { grid-template-columns: 1fr; gap: 50px; }
+}
+/* Hiệu ứng Fade-in cho các section */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal-item.is-active {
+    opacity: 1;
+    transform: translateY(0);
+}
