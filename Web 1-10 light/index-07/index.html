@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reeni is a modern personal portfolio template for designers, developers, content writer, cleaner, programmer, fashion designer, model, Influencer and freelancers. Fully responsive, SEO-friendly, Bootstrap and easy to customize.">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon.svg">
+    <title>Home 07 Reeni - Personal Portfolio HTML Template | Freelancer & Developer Portfolio</title>
+    <!-- Bootstrap min css -->
+    <link rel="stylesheet" href="../assets/css/vendor/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/plugins/swiper.css">
+    <link rel="stylesheet" href="../assets/css/plugins/odometer.css">
+    <link rel="stylesheet" href="../assets/css/vendor/animate.min.css">
+    <link rel="stylesheet" href="../assets/css/vendor/bootstrap.min.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body class="tmp-white-version index-seven">
+    <div id="app"></div>
+
+    <script>
+        const pageVersion = 'index-07-v1.0';
+        const components = [
+          "components/header.html",
+          "../shared_components/mobile-menu.html",
+          "components/section-1.html",
+          "components/responsive-header-style.html",
+          "components/section-3.html",
+          "../shared_components/contact.html",
+          "../shared_components/footer.html",
+          "../shared_components/chat-scroll.html",
+          "../shared_components/demo-selector.html"
+        ];
+
+        const vendorBase = '../assets/js/';
+        const scripts = [
+            '../assets/js/vendor/jquery.js',
+            '../assets/js/vendor/jquery-ui.min.js',
+            '../assets/js/vendor/waypoints.min.js',
+            '../assets/js/plugins/odometer.js',
+            '../assets/js/vendor/appear.js',
+            '../assets/js/vendor/jquery-one-page-nav.js',
+            '../assets/js/plugins/swiper.js',
+            '../assets/js/plugins/gsap.js',
+            '../assets/js/plugins/splittext.js',
+            '../assets/js/plugins/scrolltigger.js',
+            '../assets/js/plugins/scrolltoplugins.js',
+            '../assets/js/plugins/smoothscroll.js',
+            '../assets/js/vendor/bootstrap.min.js',
+            '../assets/js/vendor/waw.js',
+            '../assets/js/plugins/isotop.js',
+            '../assets/js/plugins/animation.js',
+            '../assets/js/plugins/contact.form.js',
+            '../assets/js/vendor/backtop.js',
+            '../assets/js/vendor/particle.js',
+            '../assets/js/plugins/text-type.js',
+            '../assets/js/main.js'
+        ];
+
+        async function loadComponents() {
+            const app = document.getElementById('app');
+
+            for (const component of components) {
+                const response = await fetch(`${component}?v=${pageVersion}`, {
+                    cache: 'no-store',
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Cannot load component: ${component}`);
+                }
+
+                app.insertAdjacentHTML('beforeend', await response.text());
+            }
+        }
+
+        async function fileExists(src) {
+            try {
+                const response = await fetch(src, { method: 'HEAD' });
+                return response.ok;
+            } catch (error) {
+                return false;
+            }
+        }
+
+        function loadScript(src) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = src;
+                script.onload = resolve;
+                script.onerror = () => reject(new Error(`Cannot load ${src}`));
+                document.body.appendChild(script);
+            });
+        }
+
+        async function bootPage() {
+            try {
+                await loadComponents();
+
+                if (!await fileExists('../assets/js/vendor/jquery.js')) {
+                    console.warn('Skip template scripts because jquery.js is missing.');
+                    return;
+                }
+
+                for (const script of scripts) {
+                    if (await fileExists(script)) {
+                        await loadScript(script);
+                    } else {
+                        console.warn(`Skip missing script: ${script}`);
+                    }
+                }
+            } catch (error) {
+                console.error(error);
+                document.getElementById('app').innerHTML = '<p style="padding: 32px; color: #c00; text-align: center;">Cannot load page components. Vui lòng mở trang bằng Live Server.</p>';
+            }
+        }
+
+        bootPage();
+    </script>
+</body>
+
+</html>
