@@ -1,0 +1,134 @@
+<section class="lineup-schedule">
+    <div class="lineup-schedule__container container">
+
+        <!-- Day Tabs Selection -->
+        <div class="schedule-tabs" role="tablist" aria-label="Festival Days">
+            <button class="schedule-tab schedule-tab--active" type="button" role="tab" aria-selected="true"
+                aria-controls="schedule-panel" id="tab-friday" data-day="friday">
+                Friday
+            </button>
+            <button class="schedule-tab" type="button" role="tab" aria-selected="false" aria-controls="schedule-panel"
+                id="tab-saturday" data-day="saturday">
+                Saturday
+            </button>
+            <button class="schedule-tab" type="button" role="tab" aria-selected="false" aria-controls="schedule-panel"
+                id="tab-sunday" data-day="sunday">
+                Sunday
+            </button>
+        </div>
+
+        <!-- Main Bố cục 2 cột -->
+        <div class="schedule-layout">
+
+            <!-- Cột trái: Lịch diễn (72%) -->
+            <div class="schedule-main">
+                <div class="schedule-panel" id="schedule-panel" role="tabpanel" aria-labelledby="tab-friday">
+
+                    <header class="schedule-panel__header">
+                        <h2 class="schedule-panel__title" id="schedule-day-title">Friday 15th May 2026</h2>
+                        <p class="schedule-panel__subtitle">Events will be listed in the lead-up to the Festival.
+                            Schedule is subject to change.</p>
+                    </header>
+
+                    <!-- Container nạp danh sách sự kiện từ JS -->
+                    <div class="schedule-list" id="schedule-events-container">
+                        <!-- Events will be rendered here dynamically via JS -->
+                    </div>
+
+                    <!-- Nút Book Tickets cuối danh sách -->
+                    <div class="schedule-actions">
+                        <a class="schedule-book-btn" href="pages/tickets.html">
+                            Book Tickets
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Cột phải: Sidebar Filters (28%) -->
+            <aside class="schedule-sidebar">
+
+                <!-- Search Box -->
+                <div class="sidebar-widget">
+                    <label class="sidebar-widget__label" for="event-search">Search Events</label>
+                    <div class="search-input-wrapper">
+                        <input class="search-input" type="search" id="event-search"
+                            placeholder="Type to search events...">
+                    </div>
+                </div>
+
+                <!-- Timetable By Area -->
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-widget__title">Timetable by Area</h3>
+                    <p class="sidebar-widget__subtitle">See the timetable by event type</p>
+                    <div class="filter-group filter-group--area" id="area-filters">
+                        <button class="filter-pill" type="button" aria-pressed="false"
+                            data-area="Ballymaloe Cookery School">Ballymaloe Cookery School</button>
+                        <button class="filter-pill" type="button" aria-pressed="false"
+                            data-area="Ballymaloe Cookery School Marquee">Ballymaloe Cookery School Marquee</button>
+                        <button class="filter-pill" type="button" aria-pressed="false"
+                            data-area="Ballymaloe House Guest Chefs">Ballymaloe House Guest Chefs</button>
+                        <button class="filter-pill" type="button" aria-pressed="false"
+                            data-area="Carrigaun Room Workshops">Carrigaun Room Workshops</button>
+                        <button class="filter-pill" type="button" aria-pressed="false" data-area="Change We Must">Change
+                            We Must</button>
+                        <button class="filter-pill" type="button" aria-pressed="false" data-area="Cook the Books">Cook
+                            the Books</button>
+                        <button class="filter-pill" type="button" aria-pressed="false" data-area="Cool Food School">Cool
+                            Food School</button>
+                        <button class="filter-pill" type="button" aria-pressed="false" data-area="Drinks Theatre">Drinks
+                            Theatre</button>
+                        <button class="filter-pill" type="button" aria-pressed="false"
+                            data-area="Festival Book Shop">Festival Book Shop</button>
+                        <button class="filter-pill" type="button" aria-pressed="false" data-area="Garden Marquee">Garden
+                            Marquee</button>
+                        <button class="filter-pill" type="button" aria-pressed="false"
+                            data-area="Kerrygold Main Stage">Kerrygold Main Stage</button>
+                        <button class="filter-pill" type="button" aria-pressed="false" data-area="Lambing Shed">Lambing
+                            Shed</button>
+                        <button class="filter-pill" type="button" aria-pressed="false"
+                            data-area="Scoop &amp; A Yarn">Scoop &amp; A Yarn</button>
+                        <button class="filter-pill" type="button" aria-pressed="false"
+                            data-area="The Big Shed Workshops">The Big Shed Workshops</button>
+                        <button class="filter-pill" type="button" aria-pressed="false"
+                            data-area="The Woodshed Kitchen - Pop-up Dining">The Woodshed Kitchen</button>
+                        <button class="filter-pill" type="button" aria-pressed="false" data-area="Walks and Talks">Walks
+                            and Talks</button>
+                    </div>
+                </div>
+
+                <!-- Timetable By Event Type -->
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-widget__title">Timetable by Event</h3>
+                    <p class="sidebar-widget__subtitle">See the timetable by event type</p>
+                    <div class="filter-group filter-group--event-type" id="event-type-filters">
+                        <button class="filter-badge filter-badge--blue" type="button" aria-pressed="false"
+                            data-type="Drinks Theatre Demo">Drinks Theatre Demo</button>
+                        <button class="filter-badge filter-badge--purple" type="button" aria-pressed="false"
+                            data-type="Talk &amp; Taste">Talk &amp; Taste</button>
+                        <button class="filter-badge filter-badge--orange" type="button" aria-pressed="false"
+                            data-type="Panel Discussion">Panel Discussion</button>
+                        <button class="filter-badge filter-badge--green" type="button" aria-pressed="false"
+                            data-type="Music">Music</button>
+                        <button class="filter-badge filter-badge--redbrown" type="button" aria-pressed="false"
+                            data-type="Garden Tour">Garden Tour</button>
+                        <button class="filter-badge filter-badge--olive" type="button" aria-pressed="false"
+                            data-type="Book Signing">Book Signing</button>
+                        <button class="filter-badge filter-badge--bluegray" type="button" aria-pressed="false"
+                            data-type="Walk and Talk">Walk and Talk</button>
+                        <button class="filter-badge filter-badge--purple" type="button" aria-pressed="false"
+                            data-type="Dining Experience">Dining Experience</button>
+                        <button class="filter-badge filter-badge--orange" type="button" aria-pressed="false"
+                            data-type="In Conversation">In Conversation</button>
+                        <button class="filter-badge filter-badge--green" type="button" aria-pressed="false"
+                            data-type="Cooking Demos">Cooking Demos</button>
+                        <button class="filter-badge filter-badge--blue" type="button" aria-pressed="false"
+                            data-type="Workshops &amp; Masterclasses">Workshops &amp; Masterclasses</button>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+    </div>
+</section>
