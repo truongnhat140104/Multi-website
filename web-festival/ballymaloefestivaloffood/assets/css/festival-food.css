@@ -14,11 +14,11 @@
 .festival-food-hero {
   position: relative;
   display: flex;
+  min-height: 680px;
   align-items: center;
-  min-height: 670px;
   overflow: hidden;
   color: #ffffff;
-  background-color: #0b1c16;
+  background-color: #1c2b25;
 }
 
 .festival-food-hero__background,
@@ -41,13 +41,14 @@
 
 .festival-food-hero__overlay {
   z-index: 1;
-  background: linear-gradient(
-    90deg,
-    rgba(8, 25, 20, 0.94) 0%,
-    rgba(8, 25, 20, 0.8) 35%,
-    rgba(8, 25, 20, 0.45) 70%,
-    rgba(8, 25, 20, 0.15) 100%
-  );
+  background:
+    linear-gradient(
+      90deg,
+      rgba(12, 31, 25, 0.94) 0%,
+      rgba(12, 31, 25, 0.84) 30%,
+      rgba(12, 31, 25, 0.50) 70%,
+      rgba(12, 31, 25, 0.24) 100%
+    );
 }
 
 .festival-food-hero__content {
@@ -59,25 +60,30 @@
   padding-bottom: 60px;
 }
 
-/* Static Marquee Decor */
-.festival-food-hero__marquee {
-  width: 100vw;
-  position: relative;
-  left: -88px;
-  overflow: hidden;
+.festival-food-hero__marquee-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   margin-bottom: 36px;
   pointer-events: none;
 }
 
-.marquee-horizontal {
+.festival-food-page-marquee {
+  position: relative;
+  left: -88px;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.festival-food-page-marquee .marquee-horizontal {
   display: flex;
-  align-items: center;
   width: max-content;
+  align-items: center;
   white-space: nowrap;
   transform: translateX(-8px);
 }
 
-.marquee-content-block-item {
+.festival-food-page-marquee .marquee-content-block-item {
   display: flex;
   flex: none;
   align-items: center;
@@ -85,48 +91,47 @@
   margin-right: 28px;
 }
 
-.marquee-text {
+.festival-food-page-marquee .marquee-text {
   display: block;
+  color: transparent;
   font-size: clamp(60px, 8.5vw, 132px);
   font-weight: 900;
   line-height: 0.85;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: transparent;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.35);
 }
 
-.marquee-text--solid {
+.festival-food-page-marquee .marquee-text--solid {
   color: #ffffff;
   -webkit-text-stroke: 0;
 }
 
 .festival-food-hero__subtitle {
-  max-width: 620px;
+  max-width: 720px;
   margin: 0 0 38px 4px;
-  font-size: clamp(17px, 1.8vw, 22px);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(17px, 1.5vw, 20px);
   font-weight: 500;
-  line-height: 1.45;
-  letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.55;
 }
 
 .festival-food-hero__button {
   display: inline-flex;
+  min-width: 178px;
+  min-height: 54px;
   align-items: center;
   justify-content: center;
-  min-width: 200px;
-  min-height: 54px;
   margin-left: 4px;
-  padding: 14px 36px;
+  padding: 14px 32px;
+  border: 0;
   border-radius: 7px;
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: #ffffff;
   background-color: #9ca574;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   transition:
     background-color 200ms ease,
     transform 200ms ease,
@@ -134,13 +139,9 @@
 }
 
 .festival-food-hero__button:hover {
+  color: #ffffff;
   background-color: #abb482;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   transform: translateY(-3px);
-}
-
-.festival-food-hero__button:active {
-  transform: translateY(-1px);
 }
 
 /* ==========================================================================
@@ -354,7 +355,7 @@
     padding-top: 120px;
   }
 
-  .festival-food-hero__marquee {
+  .festival-food-page-marquee {
     left: -48px;
   }
 
@@ -380,25 +381,27 @@
 /* Mobile Viewports */
 @media (max-width: 760px) {
   .festival-food-hero {
-    min-height: 520px;
+    min-height: 540px;
   }
 
   .festival-food-hero__content {
     width: calc(100% - 36px);
     margin-left: 18px;
     padding-top: 100px;
+    padding-bottom: 44px;
   }
 
-  .festival-food-hero__marquee {
+  .festival-food-page-marquee {
     left: -18px;
   }
 
-  .marquee-text {
-    font-size: clamp(50px, 9vw, 76px);
+  .festival-food-page-marquee .marquee-text {
+    font-size: clamp(52px, 14vw, 76px);
   }
 
   .festival-food-hero__subtitle {
     margin-bottom: 28px;
+    font-size: 16px;
   }
 
   .festival-food-hero__button {

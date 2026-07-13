@@ -11,27 +11,27 @@
 /* ==========================================================================
    HERO SECTION
    ========================================================================== */
-.good-to-know-hero {
+.info-hero {
   position: relative;
   display: flex;
-  align-items: center;
   min-height: 680px;
+  align-items: center;
   overflow: hidden;
   color: #ffffff;
-  background-color: #0b1512;
+  background-color: #1c2b25;
 }
 
-.good-to-know-hero__background,
-.good-to-know-hero__overlay {
+.info-hero__background,
+.info-hero__overlay {
   position: absolute;
   inset: 0;
 }
 
-.good-to-know-hero__background {
+.info-hero__background {
   z-index: 0;
 }
 
-.good-to-know-hero__image {
+.info-hero__image {
   display: block;
   width: 100%;
   height: 100%;
@@ -39,16 +39,19 @@
   object-position: center;
 }
 
-.good-to-know-hero__overlay {
+.info-hero__overlay {
   z-index: 1;
-  background: linear-gradient(90deg,
-      rgba(8, 20, 16, 0.94) 0%,
-      rgba(8, 20, 16, 0.85) 30%,
-      rgba(8, 20, 16, 0.5) 70%,
-      rgba(8, 20, 16, 0.25) 100%);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(12, 31, 25, 0.94) 0%,
+      rgba(12, 31, 25, 0.84) 30%,
+      rgba(12, 31, 25, 0.50) 70%,
+      rgba(12, 31, 25, 0.24) 100%
+    );
 }
 
-.good-to-know-hero__content {
+.info-hero__content {
   position: relative;
   z-index: 3;
   width: min(1360px, calc(100% - 176px));
@@ -57,25 +60,30 @@
   padding-bottom: 60px;
 }
 
-/* Static Marquee Decor */
-.good-to-know-hero__marquee {
-  width: 100vw;
-  position: relative;
-  left: -88px;
-  overflow: hidden;
+.info-hero__marquee-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   margin-bottom: 36px;
   pointer-events: none;
 }
 
-.marquee-horizontal {
+.info-page-marquee {
+  position: relative;
+  left: -88px;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.info-page-marquee .marquee-horizontal {
   display: flex;
-  align-items: center;
   width: max-content;
+  align-items: center;
   white-space: nowrap;
   transform: translateX(-8px);
 }
 
-.marquee-content-block-item {
+.info-page-marquee .marquee-content-block-item {
   display: flex;
   flex: none;
   align-items: center;
@@ -83,62 +91,57 @@
   margin-right: 28px;
 }
 
-.marquee-text {
+.info-page-marquee .marquee-text {
   display: block;
+  color: transparent;
   font-size: clamp(60px, 8.5vw, 132px);
   font-weight: 900;
   line-height: 0.85;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: transparent;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.35);
 }
 
-.marquee-text--solid {
+.info-page-marquee .marquee-text--solid {
   color: #ffffff;
   -webkit-text-stroke: 0;
 }
 
-.good-to-know-hero__subtitle {
+.info-hero__subtitle {
   max-width: 720px;
   margin: 0 0 38px 4px;
-  font-size: clamp(16px, 1.6vw, 20px);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(17px, 1.5vw, 20px);
   font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.55;
 }
 
-.good-to-know-hero__button {
+.info-hero__button {
   display: inline-flex;
+  min-width: 178px;
+  min-height: 54px;
   align-items: center;
   justify-content: center;
-  min-width: 200px;
-  min-height: 54px;
   margin-left: 4px;
-  padding: 14px 36px;
+  padding: 14px 32px;
+  border: 0;
   border-radius: 7px;
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: #ffffff;
   background-color: #9ca574;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   transition:
     background-color 200ms ease,
     transform 200ms ease,
     box-shadow 200ms ease;
 }
 
-.good-to-know-hero__button:hover {
+.info-hero__button:hover {
+  color: #ffffff;
   background-color: #abb482;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   transform: translateY(-3px);
-}
-
-.good-to-know-hero__button:active {
-  transform: translateY(-1px);
 }
 
 /* ==========================================================================
@@ -673,17 +676,17 @@
 
 /* Tablet Viewports */
 @media (max-width: 1100px) {
-  .good-to-know-hero {
+  .info-hero {
     min-height: 580px;
   }
 
-  .good-to-know-hero__content {
+  .info-hero__content {
     width: calc(100% - 96px);
     margin-left: 48px;
     padding-top: 120px;
   }
 
-  .good-to-know-hero__marquee {
+  .info-page-marquee {
     left: -48px;
   }
 
@@ -717,29 +720,31 @@
 
 /* Mobile Viewports */
 @media (max-width: 760px) {
-  .good-to-know-hero {
-    min-height: 520px;
+  .info-hero {
+    min-height: 540px;
   }
 
-  .good-to-know-hero__content {
+  .info-hero__content {
     width: calc(100% - 36px);
     margin-left: 18px;
     padding-top: 100px;
+    padding-bottom: 44px;
   }
 
-  .good-to-know-hero__marquee {
+  .info-page-marquee {
     left: -18px;
   }
 
-  .marquee-text {
-    font-size: clamp(52px, 10vw, 76px);
+  .info-page-marquee .marquee-text {
+    font-size: clamp(52px, 14vw, 76px);
   }
 
-  .good-to-know-hero__subtitle {
+  .info-hero__subtitle {
     margin-bottom: 28px;
+    font-size: 16px;
   }
 
-  .good-to-know-hero__button {
+  .info-hero__button {
     width: 100%;
     margin-left: 0;
   }

@@ -65,24 +65,30 @@ body.lightbox-open {
 }
 
 /* Static Marquee Decor */
-.gallery-hero__marquee {
-  width: 100vw;
-  position: relative;
-  left: -88px;
-  overflow: hidden;
+.gallery-hero__marquee-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   margin-bottom: 36px;
   pointer-events: none;
 }
 
-.marquee-horizontal {
+.gallery-page-marquee {
+  position: relative;
+  left: -88px;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.gallery-page-marquee .marquee-horizontal {
   display: flex;
-  align-items: center;
   width: max-content;
+  align-items: center;
   white-space: nowrap;
   transform: translateX(-8px);
 }
 
-.marquee-content-block-item {
+.gallery-page-marquee .marquee-content-block-item {
   display: flex;
   flex: none;
   align-items: center;
@@ -90,18 +96,18 @@ body.lightbox-open {
   margin-right: 28px;
 }
 
-.marquee-text {
+.gallery-page-marquee .marquee-text {
   display: block;
+  color: transparent;
   font-size: clamp(60px, 8.5vw, 132px);
   font-weight: 900;
   line-height: 0.85;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: transparent;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.35);
 }
 
-.marquee-text--solid {
+.gallery-page-marquee .marquee-text--solid {
   color: #ffffff;
   -webkit-text-stroke: 0;
 }
@@ -321,7 +327,7 @@ body.lightbox-open {
     padding-top: 120px;
   }
 
-  .gallery-hero__marquee {
+  .gallery-page-marquee {
     left: -48px;
   }
 
@@ -359,12 +365,12 @@ body.lightbox-open {
     padding-top: 100px;
   }
 
-  .gallery-hero__marquee {
+  .gallery-page-marquee {
     left: -18px;
   }
 
-  .marquee-text {
-    font-size: clamp(52px, 10vw, 76px);
+  .gallery-page-marquee .marquee-text {
+    font-size: clamp(52px, 14vw, 76px);
   }
 
   .gallery-section {
