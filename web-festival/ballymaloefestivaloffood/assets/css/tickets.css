@@ -465,7 +465,7 @@
 }
 
 /* Mobile Viewports */
-@media (max-width: 760px) {
+@media (max-width: 850px) {
   .tickets-hero {
     min-height: 540px;
   }
@@ -481,7 +481,7 @@
   }
 
   .marquee-text {
-    font-size: clamp(52px, 10vw, 76px);
+    font-size: clamp(52px, 14vw, 76px);
   }
 
   .tickets-hero__subtitle {
@@ -490,6 +490,7 @@
 
   .tickets-hero__button {
     width: 100%;
+    min-width: 0;
     margin-left: 0;
   }
 

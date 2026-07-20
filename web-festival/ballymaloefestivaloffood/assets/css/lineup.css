@@ -622,7 +622,7 @@
 }
 
 /* Mobile Viewports */
-@media (max-width: 760px) {
+@media (max-width: 850px) {
   .lineup-hero {
     min-height: 520px;
   }

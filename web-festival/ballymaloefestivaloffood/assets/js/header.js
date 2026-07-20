@@ -8,11 +8,11 @@ function initializeHeader() {
   }
 
   // Thiết lập class active động dựa vào trang đang truy cập
-  const links = header.querySelectorAll(".navbar__link");
+  const links = header.querySelectorAll(".navbar__link, .mobile-menu a");
   const currentPath = window.location.pathname;
 
   links.forEach(link => {
-    link.classList.remove("navbar__link--active");
+    link.classList.remove("navbar__link--active", "is-active");
     const href = link.getAttribute("href");
     if (!href) return;
 
@@ -21,7 +21,11 @@ function initializeHeader() {
                           (pageName === "index.html" && (currentPath.endsWith("/") || currentPath === ""));
 
     if (isCurrentPage) {
-      link.classList.add("navbar__link--active");
+      if (link.classList.contains("navbar__link")) {
+        link.classList.add("navbar__link--active");
+      } else {
+        link.classList.add("is-active");
+      }
     }
   });
 

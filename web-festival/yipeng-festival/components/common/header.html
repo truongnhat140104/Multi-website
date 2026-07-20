@@ -1,0 +1,81 @@
+<header class="site-header" id="js-site-header">
+  <div class="container site-header__container">
+    <!-- Logo -->
+    <a href="./index.html" class="site-header__logo-link" aria-label="Trang chủ Top Destinations">
+      <div class="site-header__logo">
+        <img src="./assets/images/home/logo.png" alt="Logo Lễ hội đèn trời Chiang Mai CAD Khomloy 2026">
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav" aria-label="Điều hướng chính">
+      <ul class="desktop-nav__list">
+        <li><a href="./index.html" class="desktop-nav__link desktop-nav__link--active">TRANG CHỦ</a></li>
+        <li><a href="./pages/tickets.html" class="desktop-nav__link">ĐẶT VÉ NGAY</a></li>
+        <li><a href="./pages/gallery.html" class="desktop-nav__link">THƯ VIỆN ẢNH</a></li>
+        <li><a href="./pages/faq.html" class="desktop-nav__link">CÂU HỎI THƯỜNG GẶP</a></li>
+        <li><a href="./pages/terms.html" class="desktop-nav__link">ĐIỀU KHOẢN VÀ ĐIỀU KIỆN</a></li>
+      </ul>
+      <div class="desktop-nav__lang" aria-label="Ngôn ngữ: Tiếng Việt">
+        <svg class="language-flag" viewBox="0 0 60 30" width="20" height="10" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <clipPath id="uk-flag-clip">
+            <path d="M0,0 v30 h60 v-30 z" />
+          </clipPath>
+          <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#ffffff" stroke-width="6" />
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4" clip-path="url(#uk-flag-clip)" />
+          <path d="M30,0 v30 M0,15 h60" stroke="#ffffff" stroke-width="10" />
+          <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
+        </svg>
+      </div>
+    </nav>
+
+    <!-- Mobile Hamburger Toggle Button -->
+    <button class="navbar__toggle" id="js-nav-toggle" aria-expanded="false" aria-controls="js-mobile-drawer"
+      aria-label="Mở trình đơn điều hướng">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Drawer Menu Overlay -->
+  <div class="mobile-drawer-overlay" id="js-drawer-overlay" aria-hidden="true"></div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="js-mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer__header">
+      <button class="mobile-drawer__close" id="js-drawer-close" aria-label="Đóng trình đơn điều hướng">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" aria-label="Điều hướng trên di động">
+      <ul class="mobile-nav__list">
+        <li><a href="./index.html" class="mobile-nav__link mobile-nav__link--active">TRANG CHỦ</a></li>
+        <li><a href="./pages/tickets.html" class="mobile-nav__link">ĐẶT VÉ NGAY</a></li>
+        <li><a href="./pages/gallery.html" class="mobile-nav__link">THƯ VIỆN ẢNH</a></li>
+        <li><a href="./pages/faq.html" class="mobile-nav__link">CÂU HỎI THƯỜNG GẶP</a></li>
+        <li><a href="./pages/terms.html" class="mobile-nav__link">ĐIỀU KHOẢN VÀ ĐIỀU KIỆN</a></li>
+      </ul>
+      <div class="mobile-nav__lang" aria-label="Chọn ngôn ngữ">
+        <svg class="language-flag" viewBox="0 0 60 30" width="20" height="10" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <clipPath id="uk-flag-clip-mob">
+            <path d="M0,0 v30 h60 v-30 z" />
+          </clipPath>
+          <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#ffffff" stroke-width="6" />
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4" clip-path="url(#uk-flag-clip-mob)" />
+          <path d="M30,0 v30 M0,15 h60" stroke="#ffffff" stroke-width="10" />
+          <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
+        </svg>
+        <span class="mobile-nav__lang-text">TIẾNG VIỆT</span>
+      </div>
+    </nav>
+  </div>
+</header>

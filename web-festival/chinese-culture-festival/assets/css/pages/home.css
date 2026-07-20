@@ -1,0 +1,8 @@
+/* ==========================================================================
+   HOME PAGE STYLES
+   ========================================================================== */
+.hero-banner {
+  padding: 100px 0;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(139, 0, 0, 0.4), transparent);
+}

@@ -379,7 +379,7 @@
 }
 
 /* Mobile Viewports */
-@media (max-width: 760px) {
+@media (max-width: 850px) {
   .festival-food-hero {
     min-height: 540px;
   }

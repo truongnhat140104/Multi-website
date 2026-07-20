@@ -164,7 +164,7 @@
   display: none;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 850px) {
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -197,6 +197,8 @@
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.12);
     cursor: pointer;
+    position: relative;
+    z-index: 10000;
   }
 
   .navbar__toggle span {
@@ -220,8 +222,11 @@
 
   .mobile-menu {
     position: fixed;
-    inset: 0;
-    z-index: -1;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    width: min(360px, 100%);
+    height: 100dvh;
     display: grid;
     align-content: center;
     gap: 10px;
@@ -229,14 +234,16 @@
     background: rgba(20, 41, 31, 0.98);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-12px);
+    pointer-events: none;
+    transform: translateX(100%);
     transition: 220ms ease;
   }
 
   .site-header.is-open .mobile-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    pointer-events: auto;
+    transform: translateX(0);
   }
 
   .mobile-menu a {
@@ -246,5 +253,11 @@
     font-weight: 700;
     text-align: center;
     text-transform: uppercase;
+    transition: color 180ms ease;
+  }
+
+  .mobile-menu a:hover,
+  .mobile-menu a.is-active {
+    color: #e4e8ae;
   }
 }

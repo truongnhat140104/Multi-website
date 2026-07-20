@@ -354,7 +354,7 @@ body.lightbox-open {
 }
 
 /* Mobile Viewports */
-@media (max-width: 760px) {
+@media (max-width: 850px) {
   .gallery-hero {
     min-height: 500px;
   }

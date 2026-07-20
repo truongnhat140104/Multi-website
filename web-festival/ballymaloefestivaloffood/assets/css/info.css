@@ -75,6 +75,10 @@
   overflow: hidden;
 }
 
+.info-page-marquee--mobile {
+  display: none;
+}
+
 .info-page-marquee .marquee-horizontal {
   display: flex;
   width: max-content;
@@ -719,7 +723,7 @@
 }
 
 /* Mobile Viewports */
-@media (max-width: 760px) {
+@media (max-width: 850px) {
   .info-hero {
     min-height: 540px;
   }
@@ -810,6 +814,102 @@
   }
 }
 
+/* Mobile-only marquee layout: reset desktop offsets and keep the solid title visible. */
+@media (max-width: 760px) {
+  .info-hero {
+    min-height: 560px;
+    overflow: hidden;
+  }
+
+  .info-hero__content {
+    width: calc(100% - 36px);
+    margin: 0 18px;
+    padding-top: 112px;
+    padding-bottom: 44px;
+  }
+
+  .info-hero__marquee-wrapper {
+    position: relative;
+    width: calc(100% + 36px);
+    margin-left: -18px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  /* Desktop rows are replaced by a concise three-item mobile composition. */
+  .info-hero__marquee-wrapper > .info-page-marquee:not(.info-page-marquee--mobile) {
+    display: none;
+  }
+
+  .info-page-marquee--mobile {
+    display: block;
+  }
+
+  .info-page-marquee {
+    position: relative;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .info-page-marquee .marquee-horizontal {
+    display: flex;
+    width: max-content;
+    min-width: 100%;
+    align-items: center;
+    white-space: nowrap;
+    transform: none;
+  }
+
+  .info-page-marquee .marquee-content-block-item {
+    flex: none;
+    margin-right: 14px;
+  }
+
+  .info-page-marquee .marquee-text {
+    display: block;
+    color: transparent;
+    font-size: clamp(50px, 14.5vw, 66px);
+    font-weight: 900;
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.32);
+  }
+
+  .info-page-marquee .marquee-text--solid {
+    color: #ffffff;
+    -webkit-text-stroke: 0;
+  }
+
+  .info-page-marquee .marquee-item--before {
+    margin-left: -225px;
+  }
+
+  .info-page-marquee .marquee-item--main {
+    margin-left: -12px;
+  }
+
+  .info-page-marquee .marquee-item--after {
+    margin-left: 0;
+  }
+
+  .info-hero__subtitle {
+    max-width: 100%;
+    margin: 0 0 26px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .info-hero__button {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+}
+
 
 @media (max-width: 1100px) {
   .getting-here__layout {
@@ -822,7 +922,7 @@
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 850px) {
   .getting-here {
     padding: 34px 18px 54px;
   }
