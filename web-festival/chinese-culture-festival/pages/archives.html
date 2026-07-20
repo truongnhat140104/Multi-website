@@ -1,0 +1,159 @@
+<script>
+    if (window.location.pathname.includes("/pages/archives.html")) {
+        window.location.replace("../index.html?page=archives");
+    } else {
+        // ScrollSpy logic inside index.html shell environment
+        (function() {
+            function setupScrollSpy() {
+                const container = document.querySelector(".archives-page");
+                if (!container) return;
+
+                const sections = container.querySelectorAll(".archive-year-section");
+                const links = container.querySelectorAll(".archives-sidebar__year");
+
+                if (sections.length === 0 || links.length === 0) return;
+
+                // 1. Explicit Click Handler for Smooth Scrolling
+                links.forEach(link => {
+                    link.addEventListener("click", (e) => {
+                        const href = link.getAttribute("href");
+                        if (href && href.startsWith("#")) {
+                            const target = container.querySelector(href);
+                            if (target) {
+                                e.preventDefault();
+                                target.scrollIntoView({ behavior: "smooth", block: "start" });
+                                
+                                // Update active class immediately on click
+                                links.forEach(l => l.classList.remove("is-active"));
+                                link.classList.add("is-active");
+
+                                // Update URL hash without browser jump
+                                if (window.history && window.history.pushState) {
+                                    const newUrl = window.location.pathname + window.location.search + href;
+                                    window.history.pushState(null, "", newUrl);
+                                }
+                            }
+                        }
+                    });
+                });
+
+                // 2. IntersectionObserver for Scrollspy
+                const observerOptions = {
+                    root: null,
+                    rootMargin: "-25% 0px -55% 0px",
+                    threshold: 0
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute("id");
+                            links.forEach(link => {
+                                if (link.getAttribute("href") === `#${id}`) {
+                                    link.classList.add("is-active");
+                                    if (window.innerWidth <= 760) {
+                                        link.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+                                    }
+                                } else {
+                                    link.classList.remove("is-active");
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                sections.forEach(sec => observer.observe(sec));
+            }
+
+            // Bind to archivesPageLoaded event triggered by component loader
+            document.addEventListener("archivesPageLoaded", setupScrollSpy);
+
+            // Run immediately if the page is already loaded
+            if (document.querySelector(".archives-page")) {
+                setupScrollSpy();
+            }
+        })();
+    }
+</script>
+
+<section class="archives-page">
+    <div class="archives-page__container">
+
+        <!-- Left Sidebar (Static Anchor Years) -->
+        <aside class="archives-sidebar">
+            <nav class="archives-sidebar__list">
+                <a href="#archive-2025" class="archives-sidebar__year is-active">2025</a>
+                <a href="#archive-2024" class="archives-sidebar__year">2024</a>
+            </nav>
+        </aside>
+
+        <!-- Right Content Area -->
+        <div class="archives-content">
+            <h1 class="archives-content__title">Archives</h1>
+
+            <!-- 2025 Section -->
+            <section id="archive-2025" class="archive-year-section">
+                <h2 class="archives-content__year">2025</h2>
+
+                <!-- Music Category -->
+                <div class="archives-group">
+                    <h3 class="archives-group__title">Music</h3>
+                    <div class="archives-group__list">
+                        <div class="archive-item">
+                            <h4 class="archive-item__title">Tan Dun WE-Festival:</h4>
+                            <p class="archive-item__subtitle">Tan Dun | <em>Tea: A Mirror of Soul</em> by The Hong Kong Philharmonic Orchestra</p>
+                            <a href="./index.html?page=programme-detail&id=tea-a-mirror-of-soul" class="archive-item__link">Know More</a>
+                        </div>
+                        <div class="archive-item">
+                            <h4 class="archive-item__title">Lingnan Melodies: Grand Chinese Orchestral Gala</h4>
+                            <p class="archive-item__subtitle">Performed by the Guangdong Chinese Orchestra</p>
+                            <a href="./index.html?page=programme-detail&id=guangdong-chinese-orchestra" class="archive-item__link">Know More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dance Category -->
+                <div class="archives-group">
+                    <h3 class="archives-group__title">Dance</h3>
+                    <div class="archives-group__list">
+                        <div class="archive-item">
+                            <h4 class="archive-item__title">Dunhuang Reverie: A Silk Road Journey</h4>
+                            <p class="archive-item__subtitle">Presented by China National Dance Ensemble</p>
+                            <a href="./index.html?page=programme-detail&id=dunhuang-reverie" class="archive-item__link">Know More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chinese Opera Category -->
+                <div class="archives-group">
+                    <h3 class="archives-group__title">Chinese Opera</h3>
+                    <div class="archives-group__list">
+                        <div class="archive-item">
+                            <h4 class="archive-item__title">Hebei Bangzi Opera Theatre of Hebei Province</h4>
+                            <p class="archive-item__subtitle">Selected Classical Scenes &amp; <em>The Floral Princess</em></p>
+                            <a href="./index.html?page=programme-detail&id=hebei-bangzi-opera" class="archive-item__link">Know More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2024 Section -->
+            <section id="archive-2024" class="archive-year-section">
+                <h2 class="archives-content__year">2024</h2>
+
+                <!-- Music Category -->
+                <div class="archives-group">
+                    <h3 class="archives-group__title">Music</h3>
+                    <div class="archives-group__list">
+                        <div class="archive-item">
+                            <h4 class="archive-item__title">Chopin Piano Recital by Lang Lang</h4>
+                            <p class="archive-item__subtitle">Celebrating classical masterpieces</p>
+                            <a href="./index.html?page=programme-detail&id=chopin-piano-recital" class="archive-item__link">Know More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</section>

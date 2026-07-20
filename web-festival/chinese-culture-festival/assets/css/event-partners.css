@@ -1,0 +1,209 @@
+/* ==========================================================================
+   EVENT PARTNERS PAGE STYLING
+   ========================================================================== */
+
+.partners-page {
+    width: 100%;
+
+    background: #ffffff;
+
+    padding: 60px 0 120px;
+}
+
+.partners-page__container {
+    display: grid;
+
+    width: min(1160px, calc(100% - 64px));
+    margin: 0 auto;
+
+    grid-template-columns: 290px minmax(0, 1fr);
+
+    align-items: start;
+    gap: 80px;
+}
+
+/* Left Sidebar Title */
+.partners-page__title {
+    margin: 0;
+
+    color: #57534f;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(38px, 3.8vw, 48px);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+/* Right Content Area */
+.partners-page__intro {
+    max-width: 760px;
+    margin: 0 0 54px;
+
+    color: #625e59;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.partners-group {
+    margin-bottom: 60px;
+}
+
+.partners-group:last-child {
+    margin-bottom: 0;
+}
+
+.partners-group__title {
+    margin: 0 0 28px;
+
+    color: #57534f;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.partners-group__subtitle {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #78716c;
+
+    font-size: 14px;
+    font-weight: 300;
+}
+
+/* Grid Layouts */
+.partners-grid {
+    display: grid;
+
+    gap: 40px;
+
+    align-items: start;
+}
+
+.partners-grid--1col {
+    grid-template-columns: 1fr;
+}
+
+.partners-grid--2col {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.partners-grid--3col {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Logo & Text Item */
+.partner-item {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+.partner-item__logo-wrap {
+    display: flex;
+
+    width: 100%;
+    height: 110px;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 14px;
+}
+
+.partner-item__logo {
+    display: block;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+}
+
+.partner-item__placeholder {
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #fdfbf7;
+
+    border: 1px dashed #eae3d7;
+
+    border-radius: 4px;
+
+    color: #a19a90;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.partner-item__name {
+    color: #625e59;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .partners-page__container {
+        width: calc(100% - 48px);
+
+        grid-template-columns: 220px minmax(0, 1fr);
+
+        gap: 40px;
+    }
+}
+
+@media (max-width: 760px) {
+    .partners-page {
+        padding: 40px 0 80px;
+    }
+
+    .partners-page__container {
+        width: calc(100% - 36px);
+
+        grid-template-columns: 1fr;
+
+        gap: 36px;
+    }
+
+    .partners-page__title {
+        font-size: 36px;
+    }
+
+    .partners-page__intro {
+        margin-bottom: 36px;
+    }
+
+    .partners-grid--2col,
+    .partners-grid--3col {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .partner-item__logo-wrap {
+        height: 90px;
+    }
+}

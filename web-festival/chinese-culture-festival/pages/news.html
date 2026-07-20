@@ -1,35 +1,19 @@
-<!DOCTYPE html>
-<html lang="vi">
+<script>
+    if (window.location.pathname.includes("/pages/news.html")) {
+        window.location.replace("../index.html?page=news");
+    }
+</script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tin tức - Chinese Culture Festival 2026</title>
+<section class="news-page">
+    <div class="news-page__container">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+        <h1 class="news-page__title">News &amp; Features</h1>
 
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+        <!-- Dynamic News Items Container -->
+        <div class="news-list" id="news-list"></div>
 
-<body id="top">
-    <div data-component="../components/header.html"></div>
+        <!-- Dynamic Pagination Container -->
+        <nav class="news-pagination" id="news-pagination"></nav>
 
-    <main>
-        <section class="page-banner">
-            <div class="container">
-                <h1>Tin tức & Sự kiện</h1>
-            </div>
-        </section>
-    </main>
-
-    <div data-component="../components/footer.html"></div>
-
-    <script src="../assets/js/component-loader.js"></script>
-    <script src="../assets/js/main.js"></script>
-</body>
-
-</html>
+    </div>
+</section>

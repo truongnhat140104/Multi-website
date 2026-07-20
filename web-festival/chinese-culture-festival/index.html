@@ -1,39 +1,55 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Chinese Culture Festival 2026</title>
-    <meta name="description" content="Khám phá Lễ hội Văn hóa Trung Hoa 2026 với các chương trình biểu diễn nghệ thuật, ẩm thực và trải nghiệm độc đáo.">
 
-    <!-- Google Fonts: Outfit -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-
-    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/pages/home.css">
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/home.css">
+    <link rel="stylesheet" href="./assets/css/about.css">
+    <link rel="stylesheet" href="./assets/css/programme-genres.css">
+    <link rel="stylesheet" href="./assets/css/programme-detail.css">
+    <link rel="stylesheet" href="./assets/css/archives.css">
+    <link rel="stylesheet" href="./assets/css/announcement.css">
+    <link rel="stylesheet" href="./assets/css/news.css">
+    <link rel="stylesheet" href="./assets/css/event-partners.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body class="home-page" id="top">
-    <!-- Header Component Slot -->
-    <div data-component="./components/header.html"></div>
+<body class="home-page">
 
-    <main>
-        <!-- Hero Component Slot -->
-        <div data-component="./components/hero.html"></div>
-    </main>
+    <!-- Header (Loaded once) -->
+    <div data-component="./components/common/header.html"></div>
 
-    <!-- Footer Component Slot -->
-    <div data-component="./components/footer.html"></div>
+    <!-- Main Page Content Fragment -->
+    <main id="page-content" class="page-main"></main>
 
-    <!-- JS Files -->
+    <!-- Footer (Loaded once) -->
+    <div data-component="./components/common/footer.html"></div>
+
+    <!-- Sidebar (Loaded once) -->
+    <div data-component="./components/common/sidebar.html"></div>
+
+    <script src="./assets/data/programme-genres.js"></script>
+    <script src="./assets/data/programme-detail.js"></script>
     <script src="./assets/js/component-loader.js"></script>
+    <script src="./assets/js/header.js"></script>
+    <script src="./assets/js/programmes.js"></script>
+    <script src="./assets/js/about.js"></script>
+    <script src="./assets/js/programme-genres.js"></script>
+    <script src="./assets/js/programme-detail.js"></script>
+    <script src="./assets/js/news.js"></script>
+    <script src="./assets/js/home.js"></script>
     <script src="./assets/js/main.js"></script>
+
 </body>
 
 </html>
