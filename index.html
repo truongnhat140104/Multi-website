@@ -35,6 +35,22 @@
                 <button class="filter-btn" data-filter="light"><i class="fa-solid fa-sun"></i> Light Mode <span
                         class="count">25</span></button>
             </div>
+
+            <!-- Background Color Toggle Controls -->
+            <div class="bg-toggle-wrapper">
+                <span class="bg-toggle-label"><i class="fa-solid fa-palette"></i> Màu nền:</span>
+                <div class="bg-toggle-group">
+                    <button class="bg-toggle-btn active" id="bg-toggle-glow" title="Hiệu ứng Gradient Glow">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Glowing
+                    </button>
+                    <button class="bg-toggle-btn" id="bg-toggle-dark" title="Nền Tối Chuẩn (Pure Dark)">
+                        <i class="fa-solid fa-square"></i> Pure Dark
+                    </button>
+                    <button class="bg-toggle-btn" id="bg-toggle-light" title="Nền Sáng (Light Theme)">
+                        <i class="fa-solid fa-circle-half-stroke"></i> Light Bg
+                    </button>
+                </div>
+            </div>
         </header>
 
         <main class="grid" id="demo-grid"> <a href="web-reeni/index/index.html" class="card-wrapper" data-type="dark"
@@ -1098,6 +1114,38 @@
                 updateShowcase();
             });
         });
+
+        // Background Toggle functionality
+        const bgGlowBtn = document.getElementById('bg-toggle-glow');
+        const bgDarkBtn = document.getElementById('bg-toggle-dark');
+        const bgLightBtn = document.getElementById('bg-toggle-light');
+        const bgToggleBtns = [bgGlowBtn, bgDarkBtn, bgLightBtn];
+
+        function setBgMode(mode) {
+            bgToggleBtns.forEach(btn => btn?.classList.remove('active'));
+            document.body.classList.remove('bg-mode-pure-dark', 'bg-mode-light');
+
+            if (mode === 'pure-dark') {
+                bgDarkBtn?.classList.add('active');
+                document.body.classList.add('bg-mode-pure-dark');
+            } else if (mode === 'light') {
+                bgLightBtn?.classList.add('active');
+                document.body.classList.add('bg-mode-light');
+            } else {
+                bgGlowBtn?.classList.add('active');
+            }
+            localStorage.setItem('preferred-bg-mode', mode);
+        }
+
+        bgGlowBtn?.addEventListener('click', () => setBgMode('glow'));
+        bgDarkBtn?.addEventListener('click', () => setBgMode('pure-dark'));
+        bgLightBtn?.addEventListener('click', () => setBgMode('light'));
+
+        // Restore saved background mode
+        const savedBgMode = localStorage.getItem('preferred-bg-mode');
+        if (savedBgMode) {
+            setBgMode(savedBgMode);
+        }
 
         // Initial load
         updateShowcase();
