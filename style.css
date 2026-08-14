@@ -94,12 +94,14 @@ body {
     margin-bottom: 1.25rem;
     line-height: 1.1;
     background: linear-gradient(135deg, #ffffff 50%, var(--text-muted) 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .logo-accent {
     background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -244,6 +246,7 @@ body.bg-mode-light .glow {
 
 body.bg-mode-light .logo {
     background: linear-gradient(135deg, #0f172a 50%, #475569 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
